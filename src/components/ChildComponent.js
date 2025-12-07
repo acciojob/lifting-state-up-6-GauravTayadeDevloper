@@ -4,18 +4,21 @@ export default function ChildComponent({ todos, handleComplete }) {
         <div>
             <h2>Child Component</h2>
             <ul>
-                {todos.map((l) => (
-                    <li key={l.id}>
-                        <span>{l.text}</span>
+  {todos.map((l) => {
+    return (
+      <li key={l.id}>
+        <span>{l.text}</span>
 
-                        {!l.completed && (
-                            <button onClick={() => handleComplete(l.id)}>
-                                Complete
-                            </button>
-                        )}
-                    </li>
-                ))}
-            </ul>
+        {!l.completed && (
+          <button onClick={() => handleComplete(l.id)}>
+            Complete
+          </button>
+        )}
+      </li>
+    );
+  })}
+</ul>
+
         </div>
     );
 }
